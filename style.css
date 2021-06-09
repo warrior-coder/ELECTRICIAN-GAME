@@ -67,3 +67,116 @@ BODY {
 
     z-index: 99;
 }
+
+/* LEFT BLOCK 
+.left__block {
+    position: absolute;
+    top: 8vh;
+    left: 4vw;
+    background: lime;
+}
+
+
+.right__block {
+    position: absolute;
+    top: 8vh;
+    right: 4vw;
+
+    display: flex;
+    flex-direction: column;
+}
+.right__block_button1 {
+    background: transparent;
+    border: none;
+    font-family: "Akrobat", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-size: 2.5vh;
+}
+.right__block_button2 {
+    height: 5vh;
+    width: 5vh;
+
+    font-family: "Akrobat", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-size: 2.5vh;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
+/* Left container */
+.electrician__left_container {
+    position: absolute;
+    top: 8.4vh;
+    left: 5.8vw;
+    width: 37vh;
+
+    display: flex;
+    flex-direction: column;
+}
+.electrician__left_subtitle {
+    font-weight: 600;
+    font-size: 3.5vh;
+}
+.electrician__left_title {
+    font-weight: bold;
+    font-size: 6.6vh;
+    line-height: 7vh;
+}
+.electrician__left_bar {
+    height: .2vh;
+    position: relative;
+    width: 26.5vh;
+    margin-top: 1.5vh;
+    margin-bottom: 2.5vh;
+    background: rgba(255, 255, 255, 0.25);
+}
+.electrician__left_bar_fill {
+    position: absolute;
+    height: 100%;
+    width: 55%;
+    background: #FBFF44;
+}
+
+/* Right container */
+.electrician_right_container {
+    position: absolute;
+    top: 8.4vh;
+    right: 3.6vw;
+    width: 12vw;
+    height: 10vh;
+
+    display: flex;
+    flex-direction: column;
+}
+.electrician_right_container_exit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    font-size: 2.5vh;
+    
+    margin-bottom: 2vh;
+}
+.electrician_right_container_exit_button {
+    height: 5.1vh;
+    width: 5.1vh;
+    margin-left: 1vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: .3vh;
+    font-size: 2.5vh;   
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}

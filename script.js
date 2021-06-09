@@ -55,7 +55,7 @@ for (let i = 0; i < 5; i++)
             {
                 TOP.style.opacity = BOTTOM.style.opacity = .5;
                 GAMEOVER.style.display = 'flex';
-                GAMEOVER.innerHTML = '<img src="images/' + (DONE == OK ? 'win' : 'lose') + '.svg" alt="gameover" draggable="false">';
+                GAMEOVER.innerHTML = '<img style="height: 34vh;" src="images/' + (DONE == OK ? 'win' : 'lose') + '.svg" alt="gameover" draggable="false">';
             }
             
             // Lock circles
@@ -89,6 +89,7 @@ document.addEventListener('mousemove', e =>
 
 document.addEventListener('mouseup', () =>
 {
+    // Clear target
     if (TARGET > -1)
     {
         BOTTOMS[TARGET].style.transform = 'rotate(0deg)';
