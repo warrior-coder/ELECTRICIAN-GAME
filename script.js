@@ -1,104 +1,98 @@
-// Creation part
+// -+-+-+-+-+-+-+-+-+-+- Creation part -+-+-+-+-+-+-+-+-+-+-
+const BOTTOM = document.querySelector('.bottom_container');
 const BOTTOMS = document.querySelectorAll('.circle-bottom');
 const TOP = document.querySelector('.top_container');
-const BOTTOM = document.querySelector('.bottom_container');
 const GAMEOVER = document.querySelector('.gameover_container');
 
-let tops = [ 0, 1, 2, 3, 4 ];
-let bottoms = [ 0, 1, 2, 3, 4 ];
+let tops_position = [ 0, 1, 2, 3, 4 ];
+let bottoms_position = [ 0, 1, 2, 3, 4 ];
 
 for (let i = 0; i < 5; i++)
 {
     let r = Math.round(Math.random() * 4);
-    let temp = tops[i];
-    tops[i] = tops[r];
-    tops[r] = temp;
+    let temp = tops_position[i];
+    tops_position[i] = tops_position[r];
+    tops_position[r] = temp;
+}
+for (let i = 0; i < 5; i++)
+{
+    TOP.innerHTML += '<img class="circle-top" src="images/circle-top-' + tops_position[i] + '.svg" alt="circle" draggable="false">'
 }
 
+// -+-+-+-+-+-+-+-+-+-+- Logic part -+-+-+-+-+-+-+-+-+-+-
+var TARGET = -1,
+    mX0, mY0,
+    dX, dY,
+    OK = 0,
+    DONE = 0;
+const LINES = document.querySelectorAll('.line');
+const TOPS = document.querySelectorAll('.circle-top');
 
 for (let i = 0; i < 5; i++)
 {
-    TOP.innerHTML += '<img class="circle-top" src="electrician_asests/circle-top-' + tops[i] + '.svg" alt="circle">'
-}
-const TOPS = document.querySelectorAll('.circle-top');
-
-// Logic part
-var TARGET = -1, mX0, mY0, dX, dY, OK = 0, DONE = 0;
-const LINES = document.querySelectorAll('.line');
-console.dir(LINES);
-
-for (let i = 0; i < BOTTOMS.length; i++)
-{
-    BOTTOMS[i].addEventListener('mousedown', e => {
-        if (bottoms[i] > -1)
+    BOTTOMS[i].addEventListener('mousedown', () =>
+    {
+        if (bottoms_position[i] > -1)
         {
-            console.log('start from', i);
-        
             TARGET = i;
-            mX0 = e.clientX;
-            mY0 = e.clientY;
+            let bottom_i = BOTTOMS[i].getBoundingClientRect();
+            mX0 = bottom_i.left + bottom_i.width / 2;
+            mY0 = bottom_i.top + bottom_i.height / 2;
             dX = dY = 0;
         }
-        
     });
-    TOPS[i].addEventListener('mouseup', e => {
-        if (TARGET > -1 && tops[i] != -1)
+
+    TOPS[i].addEventListener('mouseup', () => 
+    {
+        if (TARGET > -1 && tops_position[i] > -1)
         {
-            console.log('end in', tops[i]);
-            if (tops[i] == TARGET)
-            {
-                OK++;
-                tops[i] = -1;
-                bottoms[TARGET] = -1;
-                // BOTTOMS[TARGET].removeEventListener('mousedown', ()=>{}, false);
-                // TOPS[i].removeEventListener('mouseup', ()=>{}, false);
-            }
+            // Counter
             DONE++;
+            if (tops_position[i] == TARGET) OK++;
+
+            // If all done
             if (DONE == 5)
             {
-                TOP.style.opacity = 0.5;
-                BOTTOM.style.opacity = 0.5;
+                TOP.style.opacity = BOTTOM.style.opacity = .5;
                 GAMEOVER.style.display = 'flex';
-                if (DONE == OK) GAMEOVER.innerHTML = '<img src="electrician_asests/win.svg" alt="win" draggable="false">';
-                else GAMEOVER.innerHTML = '<img src="electrician_asests/lose.svg" alt="lose" draggable="false">';
+                GAMEOVER.innerHTML = '<img src="images/' + (DONE == OK ? 'win' : 'lose') + '.svg" alt="gameover" draggable="false">';
             }
-            // ClearTarget(TARGET);
-            // TOPS[tops[i]].removeEventListener('mouseup', ()=>{}, false);
-            // BOTTOMS[i].removeEventListener('mousedown', ()=>{}, false);
+            
+            // Lock circles
+            tops_position[i] = bottoms_position[TARGET] = -1;
             TARGET = -1;
         }
-        
     });
 }
 
-document.addEventListener('mousemove', e => {
+document.addEventListener('mousemove', e =>
+{
     if (TARGET > -1)
     {
+        // Count cords
         dX += e.clientX - mX0;
         dY += e.clientY - mY0;
-        let len = Math.round(Math.sqrt(dX*dX + dY*dY));
-        LINES[TARGET].style.height = len + 'px';
-        let deg = -Math.atan(dX/dY) / 3.14 * 180;
-        // console. log(deg);
-        LINES[TARGET].style.transform = 'rotate(' + deg + 'deg)';
-        LINES[TARGET].style.display = 'block';
-        BOTTOMS[TARGET].style.transform = 'rotate(' + deg + 'deg)';
-        // console.clear();
-        // console.log(dX, dY);
         mX0 = e.clientX;
         mY0 = e.clientY;
+
+        // Count length
+        let len = Math.round(Math.sqrt(dX*dX + dY*dY));
+        LINES[TARGET].style.height = len + 'px';
+
+        // Count rotating
+        let deg = -Math.atan(dX/dY) / 3.14 * 180;
+        if (dY > 0) deg += 180;
+        LINES[TARGET].style.transform = BOTTOMS[TARGET].style.transform = 'rotate(' + deg + 'deg)';
+        LINES[TARGET].style.display = 'block';
     }
 });
 
-document.addEventListener('mouseup', e => {
-    ClearTarget(TARGET);
-
+document.addEventListener('mouseup', () =>
+{
+    if (TARGET > -1)
+    {
+        BOTTOMS[TARGET].style.transform = 'rotate(0deg)';
+        LINES[TARGET].style.display = 'none';
+    }
     TARGET = -1;
 });
-
-function ClearTarget(target)
-{
-    if (target == -1) return;
-    BOTTOMS[target].style.transform = 'rotate(0deg)';
-    LINES[target].style.display = 'none';
-}

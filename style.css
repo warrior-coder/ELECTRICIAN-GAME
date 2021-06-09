@@ -1,13 +1,16 @@
 BODY {
-    background-color: blue;
-    background: url(electrician_asests/bg.png) no-repeat;
-    background-size: 100%;
+    background: darkblue url(images/bg.png) no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
+
+    overflow:  hidden;
+    font-family: "Akrobat", sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
 }
 .game_container {
     position: relative;
-    /* background: red; */
     top: 18vh;
     height: 64vh;
     width: 44vw;
@@ -19,11 +22,9 @@ BODY {
     top: 0;
     width: 100%;
     height: 6vh;
-    /* background: green; */
 
     display: flex;
     justify-content: space-between;
-
 }
 .bottom_container {
     position: absolute;
@@ -31,11 +32,13 @@ BODY {
     width: 100%;
     height: 6vh;
 
-    /* background: gold; */
-
     display: flex;
     justify-content: space-between;
-
+}
+.circle-bottom_container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 .circle-top {
     z-index: 9;
@@ -46,18 +49,15 @@ BODY {
 }
 .line {
     position: absolute;
-    transform-origin: bottom;
-
     height: 10vh;
     width: 2vh;
-    display: none;
+    transform-origin: bottom;
     margin-bottom: 3vh;
-    
     border-radius: 1vh;
+    display: none;
 }
 .gameover_container {
     position: absolute;
-    /* background: lime; */
     width: 100%;
     height: 100%;
 
