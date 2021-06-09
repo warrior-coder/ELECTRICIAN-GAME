@@ -1,0 +1,69 @@
+BODY {
+    background-color: blue;
+    background: url(electrician_asests/bg.png) no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+.game_container {
+    position: relative;
+    /* background: red; */
+    top: 18vh;
+    height: 64vh;
+    width: 44vw;
+    left: 27vw;
+    user-select: none;
+}
+.top_container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 6vh;
+    /* background: green; */
+
+    display: flex;
+    justify-content: space-between;
+
+}
+.bottom_container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6vh;
+
+    /* background: gold; */
+
+    display: flex;
+    justify-content: space-between;
+
+}
+.circle-top {
+    z-index: 9;
+    height: 6vh;
+}
+.circle-bottom {
+    height: 6vh;
+}
+.line {
+    position: absolute;
+    transform-origin: bottom;
+
+    height: 10vh;
+    width: 2vh;
+    display: none;
+    margin-bottom: 3vh;
+    
+    border-radius: 1vh;
+}
+.gameover_container {
+    position: absolute;
+    /* background: lime; */
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 99;
+}
