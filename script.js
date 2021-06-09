@@ -28,6 +28,14 @@ var TARGET = -1,
 const LINES = document.querySelectorAll('.line');
 const TOPS = document.querySelectorAll('.circle-top');
 
+function GameOver(mode)
+{
+    TOP.style.opacity = BOTTOM.style.opacity = .5;
+    GAMEOVER.style.zIndex = 99;
+    GAMEOVER.style.opacity = 1;
+    GAMEOVER.innerHTML = '<img style="height: 34vh;" src="images/' + mode + '.svg" alt="gameover" draggable="false">';
+}
+
 for (let i = 0; i < 5; i++)
 {
     BOTTOMS[i].addEventListener('mousedown', () =>
@@ -49,15 +57,11 @@ for (let i = 0; i < 5; i++)
             // Counter
             DONE++;
             if (tops_position[i] == TARGET) OK++;
+            else GameOver('lose');
 
             // If all done
-            if (DONE == 5)
-            {
-                TOP.style.opacity = BOTTOM.style.opacity = .5;
-                GAMEOVER.style.display = 'flex';
-                GAMEOVER.innerHTML = '<img style="height: 34vh;" src="images/' + (DONE == OK ? 'win' : 'lose') + '.svg" alt="gameover" draggable="false">';
-            }
-            
+            if (OK == 5) GameOver('win');
+
             // Lock circles
             tops_position[i] = bottoms_position[TARGET] = -1;
             TARGET = -1;
