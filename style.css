@@ -137,7 +137,7 @@ BODY {
     opacity: 1;
     transition: .5s;
 }
-.electrician__right_exit_button:hover {
+.electrician__right_exit-button:hover {
     transition: .5s;
     opacity: .75;
     background: transparent;
