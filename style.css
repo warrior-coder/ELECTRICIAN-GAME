@@ -9,7 +9,9 @@ BODY {
     font-style: normal;
     color: #FFFFFF;
 }
-.game_container {
+
+/* Game container */
+.electrician__game_container {
     position: relative;
     top: 18vh;
     height: 64vh;
@@ -17,7 +19,7 @@ BODY {
     left: 27vw;
     user-select: none;
 }
-.top_container {
+.electrician__game_top {
     position: absolute;
     top: 0;
     width: 100%;
@@ -26,7 +28,7 @@ BODY {
     display: flex;
     justify-content: space-between;
 }
-.bottom_container {
+.electrician__game_bottom {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -35,19 +37,14 @@ BODY {
     display: flex;
     justify-content: space-between;
 }
-.circle-bottom_container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-.circle-top {
+.electrician__circle-top {
     z-index: 9;
     height: 6vh;
 }
-.circle-bottom {
+.electrician__circle-bottom {
     height: 6vh;
 }
-.line {
+.electrician__wire {
     position: absolute;
     height: 10vh;
     width: 2vh;
@@ -56,7 +53,7 @@ BODY {
     border-radius: 1vh;
     display: none;
 }
-.gameover_container {
+.electrician_gameover {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -97,7 +94,7 @@ BODY {
     margin-bottom: 2.5vh;
     background: rgba(255, 255, 255, 0.25);
 }
-.electrician__left_bar_fill {
+.electrician__left_bar-fill {
     position: absolute;
     height: 100%;
     width: 55%;
@@ -105,7 +102,7 @@ BODY {
 }
 
 /* Right container */
-.electrician_right_container {
+.electrician__right_container {
     position: absolute;
     top: 8.4vh;
     right: 3.6vw;
@@ -115,7 +112,7 @@ BODY {
     display: flex;
     flex-direction: column;
 }
-.electrician_right_container_exit {
+.electrician__right_exit {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -124,13 +121,13 @@ BODY {
     
     margin-bottom: 2vh;
 }
-.electrician_right_container_exit_button {
+.electrician__right_exit-button {
     height: 5.1vh;
     width: 5.1vh;
-    margin-left: 1vh;
     background: rgba(255, 255, 255, 0.075);
     border-radius: .3vh;
     font-size: 2.5vh;   
+    margin-left: 1vh;
 
     display: flex;
     justify-content: center;
@@ -140,7 +137,7 @@ BODY {
     opacity: 1;
     transition: .5s;
 }
-.electrician_right_container_exit_button:hover {
+.electrician__right_exit_button:hover {
     transition: .5s;
     opacity: .75;
     background: transparent;

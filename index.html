@@ -6,31 +6,34 @@
 </head>
 <body>
     <!-- Game -->
-    <div class="game_container">
-        <div class="top_container"></div>
-        <div class="bottom_container">
-            <div class="circle-bottom_container">
-                <img class="circle-bottom" src="images/circle-bottom-0.svg" alt="circle" draggable="false">
-                <div class="line" style="background: linear-gradient(0deg, #52E0FF 70%, rgba(61, 173, 255, 0) 100%);"></div>
+    <div class="electrician__game_container">
+        <!-- Top -->
+        <div class="electrician__game_top"></div>
+        
+        <!-- Bottom -->
+        <div class="electrician__game_bottom">
+            <div style="display: flex; align-items: flex-end; justify-content: center;">
+                <img class="electrician__circle-bottom" src="images/circle-bottom-0.svg" alt="circle" draggable="false">
+                <div class="electrician__wire" style="background: linear-gradient(0deg, #52E0FF 70%, transparent 100%);"></div>
             </div>
-            <div class="circle-bottom_container">
-                <img class="circle-bottom" src="images/circle-bottom-1.svg" alt="circle" draggable="false">
-                <div class="line" style="background: linear-gradient(0deg, #6AFF52 70%, rgba(61, 173, 255, 0) 100%);"></div>
+            <div style="display: flex; align-items: flex-end; justify-content: center;">
+                <img class="electrician__circle-bottom" src="images/circle-bottom-1.svg" alt="circle" draggable="false">
+                <div class="electrician__wire" style="background: linear-gradient(0deg, #6AFF52 70%, transparent 100%);"></div>
             </div>
-            <div class="circle-bottom_container">
-                <img class="circle-bottom" src="images/circle-bottom-2.svg" alt="circle" draggable="false">
-                <div class="line" style="background: linear-gradient(0deg, #FFD952 70%, rgba(61, 173, 255, 0) 100%);"></div>
+            <div style="display: flex; align-items: flex-end; justify-content: center;">
+                <img class="electrician__circle-bottom" src="images/circle-bottom-2.svg" alt="circle" draggable="false">
+                <div class="electrician__wire" style="background: linear-gradient(0deg, #FFD952 70%, transparent 100%);"></div>
             </div>
-            <div class="circle-bottom_container">
-                <img class="circle-bottom" src="images/circle-bottom-3.svg" alt="circle" draggable="false">
-                <div class="line" style="background: linear-gradient(0deg, #FF52BA 70%, rgba(61, 173, 255, 0) 100%);"></div>
+            <div style="display: flex; align-items: flex-end; justify-content: center;">
+                <img class="electrician__circle-bottom" src="images/circle-bottom-3.svg" alt="circle" draggable="false">
+                <div class="electrician__wire" style="background: linear-gradient(0deg, #FF52BA 70%, transparent 100%);"></div>
             </div>
-            <div class="circle-bottom_container">
-                <img class="circle-bottom" src="images/circle-bottom-4.svg" alt="circle" draggable="false">
-                <div class="line" style="background: linear-gradient(0deg, #FF7152 70%, rgba(61, 173, 255, 0) 100%);"></div>
+            <div style="display: flex; align-items: flex-end; justify-content: center;">
+                <img class="electrician__circle-bottom" src="images/circle-bottom-4.svg" alt="circle" draggable="false">
+                <div class="electrician__wire" style="background: linear-gradient(0deg, #FF7152 70%, transparent 100%);"></div>
             </div>
         </div>
-        <div class="gameover_container"></div>
+        <div class="electrician_gameover"></div>
     </div>
     <script src="script.js"></script>
 
@@ -39,16 +42,16 @@
         <div class="electrician__left_subtitle">РАБОТА</div>
         <div class="electrician__left_title">ЭЛЕКТРИК</div>
         <div class="electrician__left_bar">
-            <div class="electrician__left_bar_fill"></div>
+            <div class="electrician__left_bar-fill"></div>
         </div>
         <div style="font-size: 2.3vh;">КРАТКОЕ ОПИСАНИЕ РАБОТЫ, КОТОРОЕ ПОЗВОЛИТ ИГРОКУ ПОНЯТЬ ЧТО К ЧЕМУ И БЫСТРЕЕ ПОНЯТЬ В ОСНОВНЫХ АСПЕКТАХ СИЕ ДЕЯТЕЛЬНОСТИ.</div>
     </div>
 
     <!-- Right container -->
-    <div class="electrician_right_container">
-        <div class="electrician_right_container_exit">
+    <div class="electrician__right_container">
+        <div class="electrician__right_exit">
             <span>ВЫЙТИ</span>
-            <div class="electrician_right_container_exit_button">ESC</div>
+            <div class="electrician__right_exit-button">ESC</div>
         </div>
         <img style="width: 21vh;" src="images/exit.svg" alt="exit">
     </div>
